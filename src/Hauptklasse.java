@@ -9,12 +9,10 @@ public class Hauptklasse {
 
         // Spielfeld aufziehen
 
-        Spielfeld mySpielfeld = new Spielfeld(30, 30);
-        List<Zelle> myZelle = mySpielfeld.generateSpielfeld();
+        Spielfeld mySpielfeld = new Spielfeld(5, 5);
+        List<Zelle> myZelle = mySpielfeld.generateSpielfeld(90);
 
         for (Zelle zelle : myZelle) {
-            System.out.println(zelle.getX());
-            System.out.println(zelle.getY());
             System.out.println(zelle.isZelleLebt());
         }
 

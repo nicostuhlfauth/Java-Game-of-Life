@@ -30,13 +30,19 @@ public class Spielfeld {
         this.y = y;
     }
 
-    public List<Zelle> generateSpielfeld() {
+    public List<Zelle> generateSpielfeld(double wahrscheinlichkeit) {
         List<Zelle> myList = new ArrayList<>(x*y);
-        Random myRandom = new Random();
+        boolean tempBoolean;
 
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
-                Zelle tempZelle = new Zelle(myRandom.nextBoolean(), i, j);
+                if (new Random().nextDouble() <= wahrscheinlichkeit/100) {
+                    tempBoolean = true;
+                }
+                else {
+                    tempBoolean = false;
+                }
+                Zelle tempZelle = new Zelle(tempBoolean, i, j);
                 myList.add(tempZelle);
                 //System.out.println(tempZelle.getX() + " " + tempZelle.getY() + " " + tempZelle.isZelleLebt());
             }
