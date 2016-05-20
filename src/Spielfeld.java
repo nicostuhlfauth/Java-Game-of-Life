@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -28,20 +30,20 @@ public class Spielfeld {
         this.y = y;
     }
 
-    public Zelle[] generateSpielfeld() {
-        Zelle[] myZelle;
-        myZelle = new Zelle[x*y];
+    public List<Zelle> generateSpielfeld() {
+        List<Zelle> myList = new ArrayList<>(x*y);
         Random myRandom = new Random();
 
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
                 Zelle tempZelle = new Zelle(myRandom.nextBoolean(), i, j);
-                myZelle[i] = tempZelle;
+                myList.add(tempZelle);
+                //System.out.println(tempZelle.getX() + " " + tempZelle.getY() + " " + tempZelle.isZelleLebt());
             }
 
         }
 
 
-        return myZelle;
+        return myList;
     }
 }

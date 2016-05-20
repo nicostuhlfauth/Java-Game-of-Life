@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Nico on 20.05.2016.
@@ -9,8 +10,14 @@ public class Hauptklasse {
         // Spielfeld aufziehen
 
         Spielfeld mySpielfeld = new Spielfeld(30, 30);
-        Zelle[] myZelle = mySpielfeld.generateSpielfeld();
+        List<Zelle> myZelle = mySpielfeld.generateSpielfeld();
 
-        System.out.println(myZelle[800]);
+        for (Zelle zelle : myZelle) {
+            System.out.println(zelle.getX());
+            System.out.println(zelle.getY());
+            System.out.println(zelle.isZelleLebt());
+        }
+
+
     }
 }
