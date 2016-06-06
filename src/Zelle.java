@@ -1,3 +1,5 @@
+import java.util.List;
+
 /**
  * Created by Nico on 20.05.2016.
  */
@@ -35,4 +37,6 @@ public class Zelle {
     public void setY(int y) {
         this.y = y;
     }
+
+
 }

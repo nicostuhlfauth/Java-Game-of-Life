@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -10,11 +9,14 @@ public class Hauptklasse {
         // Spielfeld aufziehen
 
         Spielfeld mySpielfeld = new Spielfeld(5, 5);
-        List<Zelle> myZelle = mySpielfeld.generateSpielfeld(90);
 
-        for (Zelle zelle : myZelle) {
-            System.out.println(zelle.isZelleLebt());
-        }
+        List<Zelle> myList = mySpielfeld.generateSpielfeld(100);
+
+        Generation myGeneration = new Generation();
+
+        myList = myGeneration.next(myList, mySpielfeld);
+
+        System.out.println(myList.get(5).getX());
 
 
     }
