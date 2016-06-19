@@ -6,8 +6,20 @@ import java.util.List;
  */
 public class Generation {
 
+    private boolean anyFieldLiving;
+
+    public boolean isAnyFieldLiving() {
+        return anyFieldLiving;
+    }
+
+    public Generation() {
+        anyFieldLiving = true;
+    }
+
     public List next(List<Zelle> myOldList, Spielfeld mySpielfeld) {
         List<Zelle> myList = new ArrayList<>(myOldList.size());
+
+        anyFieldLiving = false;
 
         for (int i = 0; i < myOldList.size(); i++) {
 
@@ -50,15 +62,19 @@ public class Generation {
                 case 2:
                     if (myOldList.get(i).isZelleLebt()) {
                         myList.get(i).setZelleLebt(true);
+                        anyFieldLiving = true;
                     }
                     else {
                         myList.get(i).setZelleLebt(false);
                     } break;
-                case 3: myList.get(i).setZelleLebt(true); break;
+                case 3: myList.get(i).setZelleLebt(true);
+                    anyFieldLiving = true; break;
                 default: myList.get(i).setZelleLebt(false);
             }
 
         }
+
+
 
         return myList;
     }

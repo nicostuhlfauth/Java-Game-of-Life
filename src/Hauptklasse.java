@@ -6,12 +6,16 @@ import java.util.List;
 public class Hauptklasse {
     public static void main(String[] args) {
 
+        Thread myThread = new Thread();
+
         // Spielfeld aufziehen
 
         Spielfeld mySpielfeld = new Spielfeld(8, 8);
 
         List<Zelle> myList = mySpielfeld.generateSpielfeld(50);
 
+        Generation myGeneration = new Generation();
+
 
         for (int i = 0; i < myList.size(); i++) {
             System.out.print(myList.get(i).isZelleLebt());
@@ -23,19 +27,35 @@ public class Hauptklasse {
             }
         }
 
-        System.out.println();
+        myThread.start();
 
-        myList = new Generation().next(myList, mySpielfeld);
+        try {
+            Thread.sleep(50);
 
-        for (int i = 0; i < myList.size(); i++) {
-            System.out.print(myList.get(i).isZelleLebt());
-            if ((i+1)%mySpielfeld.getY() == 0) {
+            while (myGeneration.isAnyFieldLiving()) {
                 System.out.println();
-            }
-            else {
-                System.out.print("\t");
+
+                myList = myGeneration.next(myList, mySpielfeld);
+
+                for (int i = 0; i < myList.size(); i++) {
+                    System.out.print(myList.get(i).isZelleLebt());
+                    if ((i+1)%mySpielfeld.getY() == 0) {
+                        System.out.println();
+                    }
+                    else {
+                        System.out.print("\t");
+                    }
+                }
             }
         }
+
+
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
+
 
     }
 }

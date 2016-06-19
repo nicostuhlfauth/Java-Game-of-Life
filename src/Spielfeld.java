@@ -32,7 +32,6 @@ public class Spielfeld {
 
     public List generateSpielfeld(double wahrscheinlichkeit) {
         List<Zelle> myList = new ArrayList<>(x*y);
-        boolean tempBoolean;
 
 
         for (int i = 0; i < x; i++) {
