@@ -18,17 +18,11 @@ public class Spielfeld {
         return x;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
 
     public int getY() {
         return y;
     }
 
-    public void setY(int y) {
-        this.y = y;
-    }
 
     public List generateSpielfeld(double wahrscheinlichkeit) {
         List<Zelle> myList = new ArrayList<>(x*y);
