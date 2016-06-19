@@ -8,17 +8,14 @@ public class Generation {
 
     public List next(List<Zelle> myOldList, Spielfeld mySpielfeld) {
         List<Zelle> myList = new ArrayList<>(myOldList.size());
-        myList = myOldList;
 
         for (int i = 0; i < myOldList.size(); i++) {
 
             int livingNeighbors = 0;
 
-            myList.get(i).setX(myOldList.get(i).getX());
-            myList.get(i).setY(myOldList.get(i).getY());
+            myList.add(new Zelle(false, myOldList.get(i).getX(), myOldList.get(i).getY()));
 
             if ((myOldList.get(i).getY() == 1) || (myOldList.get(i).getY() == mySpielfeld.getY()) || (myOldList.get(i).getX() == 1) || (myOldList.get(i).getX() == mySpielfeld.getX())) {
-                myList.get(i).setZelleLebt(false);
                 continue;
             }
 
