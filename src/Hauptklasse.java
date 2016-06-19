@@ -10,13 +10,21 @@ public class Hauptklasse {
 
         Spielfeld mySpielfeld = new Spielfeld(5, 5);
 
-        List<Zelle> myList = mySpielfeld.generateSpielfeld(100);
+        List<Zelle> myList = mySpielfeld.generateSpielfeld(25);
 
         Generation myGeneration = new Generation();
 
+        for (Zelle zelle : myList) {
+            System.out.print(zelle.isZelleLebt() + "\t");
+        }
+
+        System.out.println();
+
         myList = myGeneration.next(myList, mySpielfeld);
 
-        System.out.println(myList.get(5).getX());
+        for (Zelle zelle : myList) {
+            System.out.print(zelle.isZelleLebt() + "\t");
+        }
 
 
     }
