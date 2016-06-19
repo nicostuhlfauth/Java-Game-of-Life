@@ -10,52 +10,19 @@ public class Hauptklasse {
 
         // Spielfeld aufziehen
 
-        Spielfeld mySpielfeld = new Spielfeld(8, 8);
+        Spielfeld mySpielfeld = new Spielfeld(30, 30);
 
         List<Zelle> myList = mySpielfeld.generateSpielfeld(50);
 
+
+        GoLGUI myGUI = new GoLGUI("Mein Spiel", mySpielfeld, myList);
+
         Generation myGeneration = new Generation();
 
-
-        for (int i = 0; i < myList.size(); i++) {
-            System.out.print(myList.get(i).isZelleLebt());
-            if ((i+1)%mySpielfeld.getY() == 0) {
-                System.out.println();
-            }
-            else {
-                System.out.print("\t");
-            }
+        while (myGeneration.isAnyFieldLiving()) {
+            myList = myGeneration.next(myList, mySpielfeld);
+            myGUI.updateLayout(myList);
         }
-
-        myThread.start();
-
-        try {
-            Thread.sleep(50);
-
-            while (myGeneration.isAnyFieldLiving()) {
-                System.out.println();
-
-                myList = myGeneration.next(myList, mySpielfeld);
-
-                for (int i = 0; i < myList.size(); i++) {
-                    System.out.print(myList.get(i).isZelleLebt());
-                    if ((i+1)%mySpielfeld.getY() == 0) {
-                        System.out.println();
-                    }
-                    else {
-                        System.out.print("\t");
-                    }
-                }
-            }
-        }
-
-
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
-
 
     }
 }
