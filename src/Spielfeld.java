@@ -34,25 +34,22 @@ public class Spielfeld {
         List<Zelle> myList = new ArrayList<>(x*y);
         boolean tempBoolean;
 
+
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
-                if (i != 0 && j != 0 && i != x && j != y) {
-                    if (new Random().nextDouble() <= wahrscheinlichkeit/100) {
-                        tempBoolean = true;
-                    }
-                    else {
-                        tempBoolean = false;
-                    }
+                if ((i == 0) || (j == 0) || (i == (x-1)) || (j == (y-1))) {
+                    myList.add(new Zelle(false, i+1, j+1));
+                    continue;
+                }
+                if (new Random().nextDouble() <= (wahrscheinlichkeit/100)) {
+                    myList.add(new Zelle(true, i+1, j+1));
                 }
                 else {
-                    tempBoolean = false;
+                    myList.add(new Zelle(false, i+1, j+1));
                 }
-                Zelle tempZelle = new Zelle(tempBoolean, i+1, j+1);
-                myList.add(tempZelle);
             }
 
         }
-
 
         return myList;
     }

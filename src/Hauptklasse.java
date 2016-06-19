@@ -8,24 +8,34 @@ public class Hauptklasse {
 
         // Spielfeld aufziehen
 
-        Spielfeld mySpielfeld = new Spielfeld(5, 5);
+        Spielfeld mySpielfeld = new Spielfeld(8, 8);
 
-        List<Zelle> myList = mySpielfeld.generateSpielfeld(25);
+        List<Zelle> myList = mySpielfeld.generateSpielfeld(50);
 
-        Generation myGeneration = new Generation();
 
-        for (Zelle zelle : myList) {
-            System.out.print(zelle.isZelleLebt() + "\t");
+        for (int i = 0; i < myList.size(); i++) {
+            System.out.print(myList.get(i).isZelleLebt());
+            if ((i+1)%mySpielfeld.getY() == 0) {
+                System.out.println();
+            }
+            else {
+                System.out.print("\t");
+            }
         }
 
         System.out.println();
 
-        myList = myGeneration.next(myList, mySpielfeld);
+        myList = new Generation().next(myList, mySpielfeld);
 
-        for (Zelle zelle : myList) {
-            System.out.print(zelle.isZelleLebt() + "\t");
+        for (int i = 0; i < myList.size(); i++) {
+            System.out.print(myList.get(i).isZelleLebt());
+            if ((i+1)%mySpielfeld.getY() == 0) {
+                System.out.println();
+            }
+            else {
+                System.out.print("\t");
+            }
         }
-
 
     }
 }
