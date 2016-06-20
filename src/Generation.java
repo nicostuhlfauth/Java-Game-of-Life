@@ -4,10 +4,11 @@ import java.util.List;
 /**
  * Created by Nico on 21.05.2016.
  */
-public class Generation {
+public class Generation implements GenerationI {
 
     private boolean anyFieldLiving;
 
+    @Override
     public boolean isAnyFieldLiving() {
         return anyFieldLiving;
     }
@@ -16,8 +17,9 @@ public class Generation {
         anyFieldLiving = true;
     }
 
-    public List next(List<Zelle> myOldList, Spielfeld mySpielfeld) {
-        List<Zelle> myList = new ArrayList<>(myOldList.size());
+    @Override
+    public List next(List<ZelleI> myOldList, SpielfeldI mySpielfeld) {
+        List<ZelleI> myList = new ArrayList<>(myOldList.size());
 
         anyFieldLiving = false;
 

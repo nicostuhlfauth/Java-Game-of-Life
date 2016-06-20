@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * Created by Nico on 20.05.2016.
  */
-public class Spielfeld {
+public class Spielfeld implements SpielfeldI {
     private int x;
     private int y;
 
@@ -14,18 +14,21 @@ public class Spielfeld {
         this.y = y;
     }
 
+    @Override
     public int getX() {
         return x;
     }
 
 
+    @Override
     public int getY() {
         return y;
     }
 
 
+    @Override
     public List generateSpielfeld(double wahrscheinlichkeit) {
-        List<Zelle> myList = new ArrayList<>(x*y);
+        List<ZelleI> myList = new ArrayList<>(x*y);
 
 
         for (int i = 0; i < x; i++) {

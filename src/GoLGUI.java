@@ -6,12 +6,12 @@ import java.util.List;
 /**
  * Created by Nico on 19.06.2016.
  */
-public class GoLGUI {
+public class GoLGUI implements GoLGUII {
 
     private List<JPanel> myPanels;
     private JFrame myFrame;
 
-    public GoLGUI(String title, Spielfeld mySpielfeld, List<Zelle> myZellen) throws HeadlessException {
+    public GoLGUI(String title, SpielfeldI mySpielfeld, List<ZelleI> myZellen) throws HeadlessException {
         myFrame = new JFrame(title);
 
         myPanels = new ArrayList<>();
@@ -36,7 +36,8 @@ public class GoLGUI {
 
     }
 
-    public void updateLayout(List<Zelle> myZellen) {
+    @Override
+    public void updateLayout(List<ZelleI> myZellen) {
 
         Thread myThread = new Thread();
 

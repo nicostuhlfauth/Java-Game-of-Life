@@ -8,14 +8,14 @@ public class Hauptklasse {
 
 
 
-        Spielfeld mySpielfeld = new Spielfeld(30, 30);
+        SpielfeldI mySpielfeld = new Spielfeld(30, 30);
 
-        List<Zelle> myList = mySpielfeld.generateSpielfeld(30);
+        List<ZelleI> myList = mySpielfeld.generateSpielfeld(30);
 
 
-        GoLGUI myGUI = new GoLGUI("Mein Spiel", mySpielfeld, myList);
+        GoLGUII myGUI = new GoLGUI("Mein Spiel", mySpielfeld, myList);
 
-        Generation myGeneration = new Generation();
+        GenerationI myGeneration = new Generation();
 
         while (myGeneration.isAnyFieldLiving()) {
             myList = myGeneration.next(myList, mySpielfeld);
