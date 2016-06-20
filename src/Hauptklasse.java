@@ -6,13 +6,11 @@ import java.util.List;
 public class Hauptklasse {
     public static void main(String[] args) {
 
-        Thread myThread = new Thread();
 
-        // Spielfeld aufziehen
 
         Spielfeld mySpielfeld = new Spielfeld(30, 30);
 
-        List<Zelle> myList = mySpielfeld.generateSpielfeld(50);
+        List<Zelle> myList = mySpielfeld.generateSpielfeld(30);
 
 
         GoLGUI myGUI = new GoLGUI("Mein Spiel", mySpielfeld, myList);

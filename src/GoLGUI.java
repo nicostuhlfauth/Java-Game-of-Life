@@ -47,7 +47,7 @@ public class GoLGUI {
 
             for (int i = 0; i < myZellen.size(); i++) {
                 if (myZellen.get(i).isZelleLebt()) {
-                    myPanels.get(i).setBackground(Color.lightGray);
+                    myPanels.get(i).setBackground(Color.green);
                 }
                 else {
                     myPanels.get(i).setBackground(Color.black);
