@@ -14,7 +14,7 @@ public class GoLGUI implements GoLGUII {
     public GoLGUI(String title, SpielfeldI mySpielfeld, List<ZelleI> myZellen) throws HeadlessException {
         myFrame = new JFrame(title);
 
-        myPanels = new ArrayList<>();
+        myPanels = new ArrayList<>(mySpielfeld.getX()*mySpielfeld.getY());
 
         myFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
