@@ -39,8 +39,8 @@ public class GoLGUI implements GoLGUII {
     @Override
     public void updateLayout(List<ZelleI> myZellen) {
 
-        try {
-            Thread.sleep(500);
+
+
 
             for (int i = 0; i < myZellen.size(); i++) {
                 if (myZellen.get(i).isZelleLebt()) {
@@ -55,10 +55,9 @@ public class GoLGUI implements GoLGUII {
             myFrame.pack();
             myFrame.setLocationRelativeTo(null);
             myFrame.setVisible(true);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        }
         }
 
 
-    }
-}
+
+
