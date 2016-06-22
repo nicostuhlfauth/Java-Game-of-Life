@@ -10,7 +10,7 @@ public class Hauptklasse {
 
         SpielfeldI mySpielfeld = new Spielfeld(30, 30);
 
-        List<ZelleI> myList = mySpielfeld.generateSpielfeld(30);
+        List<ZelleI> myList = mySpielfeld.generateSpielfeld(15);
 
 
         GoLGUII myGUI = new GoLGUI("Mein Spiel", mySpielfeld, myList);

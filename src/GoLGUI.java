@@ -39,10 +39,6 @@ public class GoLGUI implements GoLGUII {
     @Override
     public void updateLayout(List<ZelleI> myZellen) {
 
-        Thread myThread = new Thread();
-
-        myThread.start();
-
         try {
             Thread.sleep(500);
 
